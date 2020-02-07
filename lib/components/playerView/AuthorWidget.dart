@@ -1,12 +1,9 @@
 import "package:flutter/material.dart";
 
-class AuthorWidget extends StatefulWidget {
-  AuthorWidget({Key key, title}) : super(key: key);
-  @override
-  _AuthorWidgetState createState() => _AuthorWidgetState();
-}
-
-class _AuthorWidgetState extends State<AuthorWidget> {
+class AuthorWidget extends StatelessWidget {
+  AuthorWidget({Key key, this.text, this.getIsTrackPlaying}) : super(key: key);
+  final text;
+  final getIsTrackPlaying;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -14,7 +11,7 @@ class _AuthorWidgetState extends State<AuthorWidget> {
       child: Container(
         width: double.infinity,
         color: Colors.blue,
-        child: Text("kikoo"),
+        child: Text(text),
       ),
     );
   }

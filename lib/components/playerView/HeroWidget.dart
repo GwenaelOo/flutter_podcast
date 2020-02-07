@@ -16,13 +16,12 @@ class HeroBrain {
   }
 }
 
-class PlayerHero extends StatefulWidget {
-  @override
-  _PlayerHeroState createState() => _PlayerHeroState();
-}
+class PlayerHero extends StatelessWidget {
+  PlayerHero({Key key, this.trackThumbail, this.trackTitle}) : super(key: key);
 
-class _PlayerHeroState extends State<PlayerHero> {
-  Color heroColor = Colors.green;
+  final String trackThumbail;
+  final String trackTitle;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -31,12 +30,10 @@ class _PlayerHeroState extends State<PlayerHero> {
         alignment: Alignment.bottomCenter,
         children: <Widget>[
           Positioned(
-            child: Container(
-              width: double.infinity,
-              child: Image.network(
-                  "https://www.cervelledoiseau.fr/wp-content/uploads/2018/11/RF_OMM_0000019837_ITE.jpg"),
-            ),
-          ),
+              child: Container(
+            width: double.infinity,
+            child: Image.network(trackThumbail),
+          )),
           Positioned(
             child: Container(
               color: Colors.black.withOpacity(0.75),
@@ -53,7 +50,7 @@ class _PlayerHeroState extends State<PlayerHero> {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      remote.getTitle(),
+                      trackTitle,
                       style:
                           TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                     ),

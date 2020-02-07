@@ -1,7 +1,12 @@
 import "package:flutter/material.dart";
-import '_PlayerViewBrain.dart';
 
 class PlayerWidget extends StatefulWidget {
+  PlayerWidget({Key key, this.isTrackPlaying, this.updatePlayingStatus})
+      : super(key: key);
+
+  final bool isTrackPlaying;
+  final Function updatePlayingStatus;
+
   @override
   _PlayerWidgetState createState() => _PlayerWidgetState();
 }
@@ -33,7 +38,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                       onTap: () {
                         print('play');
                         setState(() {
-                          PlayerViewBrain().setTrackPlaying();
+                          widget.updatePlayingStatus();
                         });
                       },
                       child: Container(
@@ -46,7 +51,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                           height: 100,
                           width: 100,
                           child: Icon(
-                            PlayerViewBrain().getIsTrackPlaying()
+                            widget.isTrackPlaying
                                 ? Icons.play_arrow
                                 : Icons.pause,
                             color: Colors.white,
