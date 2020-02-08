@@ -38,6 +38,8 @@ class _PlayerViewState extends State<PlayerView> {
             ),
             AuthorWidget(
               text: widget.props,
+              authorThumbnail: widget.playerViewBrain.getAuthorThumbnail(),
+              authorName: widget.playerViewBrain.getAuthorName(),
             ),
             TimeWidget(),
             PlayerWidget(

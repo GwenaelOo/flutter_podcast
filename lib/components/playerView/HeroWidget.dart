@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import 'package:podcast_app/api.dart';
 
 HeroBrain brain = new HeroBrain();
-RemoteData remote = new RemoteData();
 
 class HeroBrain {
   Color heroColor = Colors.red;

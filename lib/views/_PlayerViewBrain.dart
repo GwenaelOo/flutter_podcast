@@ -8,6 +8,11 @@ class PlayerViewBrain {
   String duration = "00:55:06";
   String date = "31 JANV. 2020";
 
+  String authorThumbnail =
+      "https://socialpro.miguelvasquez.net/public/avatar/large_johndoe_18gu2qv.jpg";
+
+  String authorName = "John Doe";
+
   bool isTrackPlaying = false;
 
   // Does the track is playing
@@ -27,7 +32,15 @@ class PlayerViewBrain {
     return trackThumbnail;
   }
 
+  getAuthorThumbnail() {
+    return authorThumbnail;
+  }
+
   getTrackTitle() {
     return trackTitle;
+  }
+
+  getAuthorName() {
+    return authorName;
   }
 }
