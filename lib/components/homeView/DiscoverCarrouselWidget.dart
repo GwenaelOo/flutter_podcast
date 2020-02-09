@@ -18,6 +18,8 @@ var data2 = {
 var data = [data1, data2];
 
 class DiscoverCarrouselWidget extends StatelessWidget {
+  DiscoverCarrouselWidget({Key key, this.handleNav}) : super(key: key);
+  final Function handleNav;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -26,7 +28,7 @@ class DiscoverCarrouselWidget extends StatelessWidget {
         child: CarouselSlider(
           items: data.map((data) {
             return Builder(builder: (BuildContext context) {
-              return CarrouselItem(data: data);
+              return CarrouselItem(data: data, handleNav: handleNav);
             });
           }).toList(),
         ),
@@ -39,8 +41,10 @@ class CarrouselItem extends StatelessWidget {
   CarrouselItem({
     Key key,
     this.data,
+    this.handleNav,
   }) : super(key: key);
   final data;
+  final Function handleNav;
   @override
   Widget build(BuildContext context) {
     print(data["Password"]);
@@ -86,12 +90,7 @@ class CarrouselItem extends StatelessWidget {
                         child: Center(
                           child: GestureDetector(
                             onTap: () {
-                              print('play');
-                              //  Navigator.push(
-                              //    context,
-                              //    MaterialPageRoute(
-                              //       builder: (context) => PlayerView()),
-                              // );
+                              handleNav('yo');
                             },
                             child: Container(
                               child: Container(

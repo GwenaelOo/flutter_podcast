@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:podcast_app/components/homeView/DiscoverWidget.dart";
 import "package:podcast_app/components/homeView/DiscoverCarrouselWidget.dart";
 import "package:podcast_app/components/homeView/Subscription.dart";
+import '../playerView/playerView.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key key, this.title}) : super(key: key);
@@ -11,6 +12,16 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  handleNav(data) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => PlayerView(
+                title: "kikoo",
+              )),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
         body: Column(
           children: <Widget>[
             Discover(),
-            DiscoverCarrouselWidget(),
+            DiscoverCarrouselWidget(handleNav: (data) => handleNav(data)),
             Subscription(),
             Expanded(flex: 3, child: Container())
           ],

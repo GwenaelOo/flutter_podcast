@@ -1,6 +1,10 @@
 import "package:flutter/material.dart";
 
 class Discover extends StatelessWidget {
+  Discover({Key key, this.handleNav}) : super(key: key);
+
+  final Function handleNav;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -32,7 +36,10 @@ class Discover extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(right: 10, top: 10, child: Icon(Icons.dehaze))
+            Positioned(
+                right: 10,
+                top: 10,
+                child: GestureDetector(child: Icon(Icons.dehaze)))
           ],
         ),
       ),
