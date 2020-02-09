@@ -1,12 +1,15 @@
 import "package:flutter/material.dart";
+import 'package:podcast_app/components/audioPlayer/SessionPlayer.dart';
 import "package:podcast_app/components/homeView/DiscoverWidget.dart";
 import "package:podcast_app/components/homeView/DiscoverCarrouselWidget.dart";
 import "package:podcast_app/components/homeView/Subscription.dart";
 import '../playerView/playerView.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({Key key, this.title}) : super(key: key);
+  HomeView({Key key, this.title, this.omg}) : super(key: key);
   final String title;
+  final String omg;
+
   @override
   _HomeViewState createState() => _HomeViewState();
 }
