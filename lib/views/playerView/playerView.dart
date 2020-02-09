@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../components/playerView/HeroWidget.dart';
-import '../components/playerView/TimeWidget.dart';
-import '../components/playerView/AuthorWidget.dart';
-import '../components/playerView/PlayerWidget.dart';
+import '../../components/playerView/HeroWidget.dart';
+import '../../components/playerView/TimeWidget.dart';
+import '../../components/playerView/AuthorWidget.dart';
+import '../../components/playerView/PlayerWidget.dart';
 import '_PlayerViewBrain.dart';
 
 class PlayerView extends StatefulWidget {

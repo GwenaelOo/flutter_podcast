@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'views/playerView.dart';
+import 'views/playerView/playerView.dart';
+import 'views/homeView/HomeView.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: Colors.black),
         secondaryHeaderColor: Colors.black,
       ),
-      home: PlayerView(title: 'AMELIE\'S PODCAST APP'),
+      home: HomeView(title: 'AMELIE\'S PODCAST APP'),
     );
   }
 }
