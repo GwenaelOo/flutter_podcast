@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'views/playerView/playerView.dart';
 import 'views/homeView/HomeView.dart';
+import 'components/audioPlayer/SessionPlayer.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: Colors.black),
         secondaryHeaderColor: Colors.black,
       ),
-      home: HomeView(title: 'AMELIE\'S PODCAST APP'),
+      home: HomeView(title: "hop"),
     );
   }
 }

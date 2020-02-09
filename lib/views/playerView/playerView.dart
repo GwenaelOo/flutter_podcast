@@ -4,11 +4,13 @@ import '../../components/playerView/TimeWidget.dart';
 import '../../components/playerView/AuthorWidget.dart';
 import '../../components/playerView/PlayerWidget.dart';
 import '_PlayerViewBrain.dart';
+import 'package:podcast_app/components/audioPlayer/SessionPlayer.dart';
 
 class PlayerView extends StatefulWidget {
   PlayerView({Key key, this.title}) : super(key: key);
 
   final PlayerViewBrain playerViewBrain = new PlayerViewBrain();
+  final SessionAudioPlayer sessionAudioPlayer = new SessionAudioPlayer();
 
   final String title;
   final String props = "Success";
@@ -26,6 +28,8 @@ class _PlayerViewState extends State<PlayerView> {
 
   @override
   Widget build(BuildContext context) {
+    print('initail playing status');
+    print(widget.playerViewBrain.isTrackPlaying);
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
@@ -45,6 +49,7 @@ class _PlayerViewState extends State<PlayerView> {
             PlayerWidget(
               isTrackPlaying: widget.playerViewBrain.getIsTrackPlaying(),
               updatePlayingStatus: this.updatePlayingStatus,
+              sessionPlayer: widget.sessionAudioPlayer,
             )
           ],
         ));

@@ -1,17 +1,25 @@
 import "package:flutter/material.dart";
 
 class PlayerWidget extends StatefulWidget {
-  PlayerWidget({Key key, this.isTrackPlaying, this.updatePlayingStatus})
+  PlayerWidget(
+      {Key key,
+      this.isTrackPlaying,
+      this.updatePlayingStatus,
+      this.sessionPlayer})
       : super(key: key);
 
   final bool isTrackPlaying;
   final Function updatePlayingStatus;
+  final sessionPlayer;
 
   @override
   _PlayerWidgetState createState() => _PlayerWidgetState();
 }
 
 class _PlayerWidgetState extends State<PlayerWidget> {
+  String trackUrl =
+      "https://rf.proxycast.org/532ff56f-b6b0-421a-ac11-2b3c9b73d175/20623-08.02.2020-ITEMA_22277084-1.mp3";
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -36,10 +44,10 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                   child: Center(
                     child: GestureDetector(
                       onTap: () {
-                        print('play');
-                        setState(() {
-                          widget.updatePlayingStatus();
-                        });
+                        widget.isTrackPlaying
+                            ? widget.sessionPlayer.pauseTrack()
+                            : widget.sessionPlayer.playTrack(trackUrl);
+                        widget.updatePlayingStatus();
                       },
                       child: Container(
                         child: Container(
@@ -52,8 +60,8 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                           width: 100,
                           child: Icon(
                             widget.isTrackPlaying
-                                ? Icons.play_arrow
-                                : Icons.pause,
+                                ? Icons.pause
+                                : Icons.play_arrow,
                             color: Colors.white,
                             size: 50,
                           ),
