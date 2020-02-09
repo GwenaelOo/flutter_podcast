@@ -25,15 +25,7 @@ class Subscription extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              CarouselSlider(
-                items: data.map((data) {
-                  return Builder(builder: (BuildContext context) {
-                    return CarrouselItem(data: data);
-                  });
-                }).toList(),
-              )
-            ],
+            children: <Widget>[Container()],
           )
         ],
       ),
